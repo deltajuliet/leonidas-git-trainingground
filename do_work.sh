@@ -5,11 +5,20 @@
 
 base_dir=`pwd`
 
+#Protects the root directory of the project from being messed with
+current_dir_name=${PWD##*/}
+
+if [ ${current_dir_name} == "leonidas-git-trainingground" ]
+then
+  echo "Please run this from another folder in this repo so that scripts in the root of this repo don't get stepped on."
+  exit
+fi
+
 number_of_actions=$BASH_ARGV
 
 if [ $number_of_actions -eq ""]
   then
-    number_of_actions=10
+    number_of_actions=25
 fi
 
 echo "Making "$number_of_actions" changes in "$base_dir
@@ -48,6 +57,8 @@ action-file_rm () {
 determine_file () {
   echo "TODO: FINISH ME"
   cd $base_dr
+
+
 
 }
 
