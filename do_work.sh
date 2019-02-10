@@ -9,7 +9,20 @@ number_of_actions=$BASH_ARGV
 
 if [ $number_of_actions -eq ""]
   then
-    number_of_actions=5
+    number_of_actions=10
+fi
+
+echo "Making "$number_of_actions" changes in "$base_dir
+echo "Enter yes to continue (y/Y):"
+read confirm
+
+confirm=$(awk '{print tolower($0)}' <<< "$confirm")
+if [ ${confirm} == "y" ] || [ ${confirm} == "yes" ]
+then
+  echo "Doing work!"
+else
+  echo "[!] You don't seem committed and we are feeling sorta lazy so we are going to bail out"
+  exit
 fi
 
 action-dir_add () {
@@ -24,16 +37,22 @@ action-file_add () {
   echo "TODO: ADD CODE to add files"
 }
 
+action-file_edit () {
+  echo "TODO: ADD CODE to edit files"
+}
+
 action-file_rm () {
   echo "TODO: ADD CODE to remove files"
 }
 
 determine_file () {
-  echo "TODO: ADD CODE"
+  echo "TODO: FINISH ME"
+  cd $base_dr
+
 }
 
 get_random_number() {
-  number_possible=4
+  number_possible=5
   return $((($RANDOM % $number_possible)+1))
 }
 
@@ -49,6 +68,9 @@ take_action () {
       action-file_add
       ;;
     4)
+      action-file_edit
+      ;;
+    5)
       action-file_rm
       ;;
   esac
