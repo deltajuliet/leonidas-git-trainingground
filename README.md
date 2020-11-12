@@ -2,4 +2,4 @@
 
 Contains a git repo that can be used for testing Git based projects. 
 
-Additionally, the do_work.sh script in the root of the project facilities emulating director and file changes
+Additionally, the do_work.sh script in the root of the project facilities emulating directory and file changes
